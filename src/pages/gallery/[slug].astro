@@ -26,7 +26,7 @@ const { title, description, photos } = gallery.data;
       {photos.map((photo, index) => (
         
           <a href={"/gallery/" + gallery.id + "/" + index}
-          class="group block relative aspect-[4/3] overflow-hidden bg-stone-900"
+          class="group block relative aspect-4/3 overflow-hidden bg-stone-900"
         >
           <img
             src={photo.src}
@@ -34,7 +34,7 @@ const { title, description, photos } = gallery.data;
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
-          <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-stone-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div class="absolute inset-x-0 bottom-0 p-4 bg-linear-to-t from-stone-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <p class="text-sm text-white">{photo.caption}</p>
           </div>
         </a>

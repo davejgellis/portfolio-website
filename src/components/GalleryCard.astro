@@ -7,7 +7,7 @@ const { title, description, coverImage, slug, photoCount } = Astro.props;
 ---
 
 <a href={`/gallery/${slug}`} class="group block">
-  <div class="relative aspect-[4/3] overflow-hidden bg-stone-900">
+  <div class="relative aspect-4/3 overflow-hidden bg-stone-900">
     <img
       src={coverImage}
       alt={title}

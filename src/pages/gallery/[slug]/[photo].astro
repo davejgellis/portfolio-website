@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const galleries = await getCollection("galleries");
-  const paths = [];
+  const paths: { params: { slug: string; photo: string }; props: any }[] = [];
 
   for (const gallery of galleries) {
     gallery.data.photos.forEach((photo, index) => {
