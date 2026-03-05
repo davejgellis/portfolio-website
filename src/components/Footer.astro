@@ -1,0 +1,17 @@
+---
+// Footer.astro
+// Simple, minimal footer. The mt-auto pushes it to the bottom of the page.
+---
+
+<footer class="border-t border-stone-800/50 mt-auto">
+  <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-stone-400">
+      &copy; {new Date().getFullYear()} Your Name. All rights reserved.
+    </p>
+    <div class="flex items-center gap-6">
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="text-sm text-stone-400 hover:text-white transition-colors">
+        Instagram
+      </a>
+    </div>
+  </div>
+</footer>

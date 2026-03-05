@@ -1,0 +1,37 @@
+---
+// BaseLayout.astro
+// This is the shared wrapper for every page on the site.
+// The "frontmatter" section between the --- fences runs at build time (server-side).
+// Think of it like the <head> + structural shell that all pages inherit.
+
+import "../styles/global.css";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+
+// Props let each page pass in its own title and description
+const { title = "Photography Portfolio", description = "A photography portfolio" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-stone-950 text-stone-200 min-h-screen flex flex-col font-['Inter']">
+    <Navigation />
+    <main class="flex-grow">
+      <!-- slot is where each page's content gets injected -->
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

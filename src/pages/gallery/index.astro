@@ -1,0 +1,33 @@
+---
+// gallery/index.astro — Gallery Overview
+// Lists all galleries from the content collection.
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import GalleryCard from "../../components/GalleryCard.astro";
+import { getCollection } from "astro:content";
+
+// Fetch all galleries and sort by order (or date)
+const galleries = await getCollection("galleries");
+galleries.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+
+<BaseLayout title="Galleries — Your Name" description="Photography galleries">
+  <section class="max-w-7xl mx-auto px-6 py-16">
+    <h1 class="font-['Playfair_Display'] text-4xl text-white mb-4">Galleries</h1>
+    <p class="text-stone-400 mb-12 max-w-2xl">
+      Collections of work organised by theme and place.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {galleries.map((gallery) => (
+        <GalleryCard
+          title={gallery.data.title}
+          description={gallery.data.description}
+          coverImage={gallery.data.coverImage}
+          slug={gallery.id}
+          photoCount={gallery.data.photos.length}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
