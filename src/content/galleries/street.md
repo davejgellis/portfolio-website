@@ -1,8 +1,8 @@
 ---
-title: Street
-description: Candid moments and urban geometry found in the everyday.
-coverImage: https://placehold.co/800x600/292524/a8a29e?text=Street
-date: "2024-08-20"
+title: Random images
+description: testing the CMS
+coverImage: /images/IMG_1592.jpeg
+date: 2024-08-20
 order: 2
 photos:
   - src: https://placehold.co/1200x800/292524/a8a29e?text=Cyclist
