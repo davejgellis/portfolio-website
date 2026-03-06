@@ -2,26 +2,12 @@ backend:
   name: github
   repo: davejgellis/portfolio-website
   branch: main
+  auth_type: pkce
+  app_id: YOUR-GITHUB-OAUTH-CLIENT-ID
+```
 
-media_folder: "public/images"
-public_folder: "/images"
+Replace `YOUR-GITHUB-OAUTH-CLIENT-ID` with the Client ID from your GitHub OAuth app.
 
-collections:
-  - name: "galleries"
-    label: "Galleries"
-    folder: "src/content/galleries"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Cover Image", name: "coverImage", widget: "image" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Order", name: "order", widget: "number", required: false }
-      - label: "Photos"
-        name: "photos"
-        widget: "list"
-        fields:
-          - { label: "Image", name: "src", widget: "image" }
-          - { label: "Alt Text", name: "alt", widget: "string" }
-          - { label: "Caption", name: "caption", widget: "string", required: false }
+Also make sure the GitHub OAuth app's **Authorization callback URL** is set to exactly:
+```
+https://www.daveellis.co.uk/admin/
